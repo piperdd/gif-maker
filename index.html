@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./node_modules/cropperjs/dist/cropper.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
+</head>
+<body>
+
+    <!-- <div class="container">
+        <img src="fractal.png" id="output">
+        <div>
+            <div> 
+                <img src="fractal.png" id="image">
+            </div>
+            <button id="cropImageBtn">Crop Image</button>
+            <button id="toggleBtn">toggle</button>
+        </div>
+    </div> -->
+    <!-- <div class="container2">
+        <div class="photos">
+            <img src="src/2.jpg" alt="">
+            <img src="src/3.jpg" alt="">
+            <img src="src/1.jpg" alt="">
+        </div>
+        <div class="button">
+            <button id="btn1">button 1</button>
+            <button id="btn2">button 2</button>
+            <button id="btn3">button 3</button>
+        </div>
+    </div> -->
+
+    <div class="image-cropper">
+        <img src="fractal.png" id="output">
+        <div>
+            <div> <!-- div around cropped image (block) -->
+                <img src="fractal.png" id="image">
+            </div>
+            <button id="cropImageBtn">Crop Image</button>
+            <button id="toggleBtn">toggle</button>
+        </div>
+    </div>
+
+    <div id="sortable" class="image-list">
+        <div class="first">
+            <div class="image-overlay">
+                <img src="src/1.jpg" alt="" tabindex="0">
+                <div class="tag">
+                    <p>1</p>
+                </div>
+                <button class="delete-button">X</button>
+            </div>
+            <button class="copy-button">copy</button>
+            <button class="disable-button"> disable</button>
+        </div>
+        <div class="second">
+            <div class="image-overlay">
+                <img src="src/2.jpg" alt="" tabindex="0">
+                <div class="tag">
+                    <p>2</p>
+                </div>
+                <button class="delete-button">X</button>
+            </div>
+            <button class="copy-button">copy</button>
+            <button class="disable-button"> disable</button>
+        </div>
+        <div class="third">
+            <div class="image-overlay">
+                <img src="src/3.jpg" alt="" tabindex="0">
+                <div class="tag">
+                    <p>3</p>
+                </div>
+                <button class="delete-button">X</button>
+            </div>
+            <button class="copy-button">copy</button>
+            <button class="disable-button"> disable</button>
+        </div>
+    </div>
+    <script src="./node_modules/cropperjs/dist/cropper.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

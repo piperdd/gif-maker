@@ -1,0 +1,117 @@
+img {
+    display: block;
+    width: 200px;
+    height: 200px;
+    max-width: 100%;
+    /* position: relative; */
+}
+
+#image {
+    height: 200;
+}
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    z-index: 0;
+}
+
+.container > img {
+    position: absolute;
+    display: none;
+    z-index: 1;
+}
+
+#output {
+    margin: 0 5px;
+}
+
+.container2 {
+    padding: 1rem;
+    height: 230px;
+}
+
+.photos {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    z-index: 0;
+}
+
+.photos > img {
+    
+    position:absolute;
+    display: block;
+    z-index: 1;
+}
+
+.button {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    top: 200px;
+}
+
+.image-cropper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    z-index: 0;
+}
+
+.image-cropper > img {
+    position: absolute;
+    display: none;
+    z-index: 1;
+}
+
+.image-list {
+    display: flex;
+    justify-content: center;
+}
+
+.image-list > div {
+    padding: 1rem;
+}
+
+.image-overlay {
+    position: relative;
+}
+
+.image-overlay button {
+    position: absolute;
+    display: flex;
+    top: 0%;
+    right: 0%;
+    width: 2rem;
+    height: 2rem;
+    font-size: large;
+    text-align: center;
+}
+
+.image-overlay .tag {
+    position: absolute;
+    display: flex;
+    top: 0%;
+    left: 0%;
+    width: 2rem;
+    height: 2rem;
+    text-align: center;
+    background: rgba(3,3,3,0.5);
+
+}
+
+.image-overlay .tag p {
+    margin:auto;
+    font-size:larger;
+    font-family: sans-serif;
+    color: white;
+}
+
+.image-overlay img:focus {
+    filter: brightness(70%);
+}
