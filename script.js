@@ -30,3 +30,51 @@ Sortable.create(sortable, {
     // sort: true
     ghostClass: 'ghost'
 });
+
+var inputFile = document.getElementById("input-file");
+document.getElementById("submit").addEventListener('click', () => {
+     var imageList = document.querySelector(".image-list");
+    // dynamicaly add images to image list
+    for(let i = 0; i < inputFile.files.length; i++){
+        console.log(inputFile.files[i]);
+
+        var nthImg = document.createElement("div");
+        nthImg.classList.add(`image-${i}`)
+
+        var imageOverlay = document.createElement("div");
+        imageOverlay.classList.add("image-overlay");
+
+        var img = document.createElement("img");
+        img.src = URL.createObjectURL(inputFile.files[i])
+        img.tabIndex = i;
+
+        var tag = document.createElement("div");
+        tag.classList.add("tag");
+
+        var p = document.createElement("p");
+        p.textContent = `${i+1}`
+
+        var deleteButton = document.createElement("button");
+        deleteButton.textContent = "X";
+
+        tag.appendChild(p);
+        imageOverlay.appendChild(img);
+        imageOverlay.appendChild(tag);
+        imageOverlay.appendChild(deleteButton);
+
+        var copyButton = document.createElement("button");
+        copyButton.classList.add("copy-button");
+        copyButton.textContent = "copy";
+
+        var disableButton = document.createElement("button");
+        disableButton.classList.add("disable-button");
+        disableButton.textContent = "disable";
+
+        nthImg.appendChild(imageOverlay)
+        nthImg.appendChild(copyButton);
+        nthImg.appendChild(disableButton);
+        imageList.appendChild(nthImg);
+    }
+})
+
+
