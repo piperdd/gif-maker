@@ -31,11 +31,13 @@ Sortable.create(sortable, {
     ghostClass: 'ghost'
 });
 
+var imageList = document.querySelector(".image-list");
+var i = 0;
+
 var inputFile = document.getElementById("input-file");
 document.getElementById("submit").addEventListener('click', () => {
-     var imageList = document.querySelector(".image-list");
     // dynamicaly add images to image list
-    for(let i = 0; i < inputFile.files.length; i++){
+    for(i; i < inputFile.files.length; i++){
         console.log(inputFile.files[i]);
 
         var nthImg = document.createElement("div");
@@ -56,6 +58,7 @@ document.getElementById("submit").addEventListener('click', () => {
 
         var deleteButton = document.createElement("button");
         deleteButton.textContent = "X";
+        deleteButton.classList.add("delete-button");
 
         tag.appendChild(p);
         imageOverlay.appendChild(img);
@@ -77,4 +80,12 @@ document.getElementById("submit").addEventListener('click', () => {
     }
 })
 
-
+imageList.addEventListener("click", (e) => {
+    if (e.target.classList.contains("delete-button")){
+        e.target.parentElement.parentElement.remove();
+    }
+    if (e.target.classList.contains("copy-button")){
+        var clone =  e.target.parentElement.cloneNode(true);
+        imageList.appendChild(clone);
+    }
+})
