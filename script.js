@@ -36,6 +36,7 @@ var i = 0;
 
 var inputFile = document.getElementById("input-file");
 document.getElementById("submit").addEventListener('click', () => {
+    document.querySelector(".image-cropper").style.opacity = 1;
     // dynamicaly add images to image list
     for(i; i < inputFile.files.length; i++){
         console.log(inputFile.files[i]);
