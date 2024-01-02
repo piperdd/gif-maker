@@ -1,11 +1,15 @@
 img {
     display: block;
-    width: 200px;
-    height: 200px;
+    /* width: 200px; */
+    /* height: 200px; */
+    height: auto;
     max-width: 100%;
     /* position: relative; */
 }
-
+.imgDiv {
+    /* max-height: 200px; */
+    max-width: 200px;
+}
 #image {
     height: 200;
 }
@@ -114,6 +118,33 @@ img {
     color: white;
 }
 
-.image-overlay img:focus {
+.image-overlay .imgDiv img:focus {
     filter: brightness(70%);
+}
+
+.imgDiv .cropper-container {
+    display: none;
+}
+
+.image-cropper-2 {
+    /* margin-right: auto;
+    margin-left: auto; */
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+}
+
+.image-cropper-2 .cropBtn {
+    width: fit-content;
+    margin: 1rem;
+}
+.image-wrapper {
+    /* display: flex; */
+    max-width: 250px;
+}
+
+.image-focus {
+    display: block;
+    max-width: 100%;
 }
