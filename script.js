@@ -36,14 +36,16 @@ Sortable.create(sortable, {
 var imageList = document.querySelector(".image-list");
 var i = 0;
 
+var cropper;
+var focusImage = document.querySelector(".image-focus");
+
 var inputFile = document.getElementById("input-file");
 document.getElementById("submit").addEventListener('click', () => {
     // document.querySelector(".image-cropper").style.opacity = 1;
     // dynamicaly add images to image list
     // var croppers = [];
-    var cropper;
+    
     var srcImages = []
-    var focusImage = document.querySelector(".image-focus")
     for(i; i < inputFile.files.length; i++){
         console.log(inputFile.files[i]);
 
@@ -101,9 +103,17 @@ document.getElementById("submit").addEventListener('click', () => {
 
         img.addEventListener("focus", (e) => {
             console.log(e.target.tabIndex);
-            // cropper.destroy();
-            cropper.replace(srcImages[e.target.tabIndex])
-            // focusImage.src = srcImages[e.target.tabIndex];
+            // cropper && cropper.destroy();
+            if(cropper){
+                cropper.destroy();
+                cropper = null;
+                console.log(cropper);
+                console.log("destroyed");
+            }
+            // cropper.replace(srcImages[e.target.tabIndex])
+            focusImage.src = srcImages[e.target.tabIndex];
+            
+
             // cropper = new Cropper(focusImage, {
             //     aspectRatio: 1,
             //     movable: false,
@@ -124,13 +134,24 @@ document.getElementById("submit").addEventListener('click', () => {
 
     
     focusImage.src = srcImages[0];
-    cropper = new Cropper(focusImage, {
+    // cropper = new Cropper(focusImage, {
+    //     aspectRatio: 1,
+    //     movable: false,
+    //     scalable: false,
+    //     zoomable: false,
+    // })
+    
+})
+
+var cropBtn = document.querySelector(".cropBtn")
+cropBtn.addEventListener("click", (e) => {
+    !cropper && (cropper = new Cropper(focusImage, {
         aspectRatio: 1,
         movable: false,
         scalable: false,
         zoomable: false,
-    })
-    
+    }));
+    console.log(cropper)
 })
 
 imageList.addEventListener("click", (e) => {
