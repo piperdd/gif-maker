@@ -37,6 +37,9 @@ var imageList = document.querySelector(".image-list");
 var i = 0;
 
 var cropper;
+var currIndex = 0;
+var cropDatas = [];
+
 var focusImage = document.querySelector(".image-focus");
 
 var inputFile = document.getElementById("input-file");
@@ -46,9 +49,10 @@ document.getElementById("submit").addEventListener('click', () => {
     // var croppers = [];
     
     var srcImages = []
+    // var cropDatas = Array(inputFile.files.length).fill(null);
     for(i; i < inputFile.files.length; i++){
         console.log(inputFile.files[i]);
-
+        cropDatas.push(null);
         var nthImg = document.createElement("div");
         nthImg.classList.add(`image-${i}`)
 
@@ -105,11 +109,13 @@ document.getElementById("submit").addEventListener('click', () => {
             console.log(e.target.tabIndex);
             // cropper && cropper.destroy();
             if(cropper){
+                cropDatas[currIndex] = cropper.getData();
                 cropper.destroy();
                 cropper = null;
-                console.log(cropper);
+                // console.log(cropper);
                 console.log("destroyed");
             }
+            currIndex = e.target.tabIndex;
             // cropper.replace(srcImages[e.target.tabIndex])
             focusImage.src = srcImages[e.target.tabIndex];
             
@@ -150,6 +156,7 @@ cropBtn.addEventListener("click", (e) => {
         movable: false,
         scalable: false,
         zoomable: false,
+        data: cropDatas[currIndex],
     }));
     console.log(cropper)
 })
