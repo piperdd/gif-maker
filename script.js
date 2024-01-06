@@ -151,14 +151,21 @@ document.getElementById("submit").addEventListener('click', () => {
 
 var cropBtn = document.querySelector(".cropBtn")
 cropBtn.addEventListener("click", (e) => {
-    !cropper && (cropper = new Cropper(focusImage, {
-        aspectRatio: 1,
-        movable: false,
-        scalable: false,
-        zoomable: false,
-        data: cropDatas[currIndex],
-    }));
-    console.log(cropper)
+    var nthImg = document.querySelector(`.image-${currIndex}`);
+    if (!cropper){
+        cropper = new Cropper(focusImage, {
+            aspectRatio: 1,
+            movable: false,
+            scalable: false,
+            zoomable: false,
+            data: cropDatas[currIndex],
+        })
+        console.log("created")
+    }else{
+        console.log(nthImg.children)
+        nthImg.children[0].children[0].children[0].src = cropper.getCroppedCanvas().toDataURL('iamge/jpeg');
+    }
+    console.log(currIndex)
 })
 
 imageList.addEventListener("click", (e) => {

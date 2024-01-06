@@ -86,6 +86,7 @@ img {
 
 .image-overlay {
     position: relative;
+    max-width: 200px;
 }
 
 .image-overlay button {
